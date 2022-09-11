@@ -1,0 +1,68 @@
+{% extends 'user1/navbar.html' %}
+{% load static %} 
+{% block title %} Cloud4Code {% endblock %}
+{% block body %}
+<div class="container">
+    <form method="POST"> 
+        {% csrf_token %}
+        {% comment %} {% for fm in form %}
+          {{fm.label_tag}} {{fm}} {{fm.error|striptags}}
+        {% endfor %} {% endcomment %}
+        
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Name</i></label>
+            <input type="text" class="form-control mt-2" name="name" placeholder="Enter name of the person" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Email</i></label>
+            <input type="email" class="form-control mt-2" name="email" placeholder="Enter Email" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Mobile Number</i></label>
+            <input type="number" class="form-control mt-2" name="number" placeholder="Enter mobile number" required>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Gender</i></label>
+            <input type="text" class="form-control mt-2" name="gender" placeholder="Enter Gender" required>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Address</i></label>
+            <input type="text" class="form-control mt-2" name="address" placeholder="Enter Address" required>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Blood-Group</i></label>
+            <input type="text" class="form-control mt-2" name="bloodgroup" placeholder="Enter Blood Group" required>
+        </div>
+    </div> 
+    <div class="row mt-4">
+        <div class="form-group col-md-12">
+            <label><i style="font-weight: bold;">Password</i></label>
+            <input type="password" class="form-control mt-2" name="password" placeholder="Enter password" required>
+        </div>
+    </div> 
+    <button type="submit" class="btn btn-outline-primary mt-4">Submit</button>
+</div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+    {% if alert %}
+    alert("User is Registered successfully.")
+    {% comment %} document.location = "/view_user" {% endcomment %}
+    {% endif %}
+</script>
+{% endblock %}

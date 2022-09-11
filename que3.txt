@@ -1,0 +1,90 @@
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 323
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| employee_db        |
+| employeedatabase   |
+| information_schema |
+| ivorydatabase      |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+7 rows in set (0.01 sec)
+
+mysql> create database ecommerce_db;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| ecommerce_db       |
+| employee_db        |
+| employeedatabase   |
+| information_schema |
+| ivorydatabase      |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use ecommerce_db;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> create table products(category varchar(20) not null, subcategory varchar(20), size int(10) not null, color varchar(20) not null);
+Query OK, 0 rows affected, 1 warning (0.19 sec)
+
+mysql> show tables;
++------------------------+
+| Tables_in_ecommerce_db |
++------------------------+
+| products               |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into products(category, subcategory, size, color) values ('cloth','shirt',32,'red');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select * from products;
++----------+-------------+------+-------+
+| category | subcategory | size | color |
++----------+-------------+------+-------+
+| cloth    | shirt       |   32 | red   |
++----------+-------------+------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into products(category, subcategory, size, color) values ('cloth','shirt',34,'white'), ('cloth', 'jeans', 30,'blue'),('shoes','sports',9,'white');
+Query OK, 3 rows affected (0.07 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from products;
++----------+-------------+------+-------+
+| category | subcategory | size | color |
++----------+-------------+------+-------+
+| cloth    | shirt       |   32 | red   |
+| cloth    | shirt       |   34 | white |
+| cloth    | jeans       |   30 | blue  |
+| shoes    | sports      |    9 | white |
++----------+-------------+------+-------+
+4 rows in set (0.00 sec)
+
+mysql>
